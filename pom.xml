@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mixin</groupId>
+    <artifactId>mixin-parent-pom</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.4.RELEASE</version>
+        <relativePath/>
+    </parent>
+    <properties>
+        <springframework.version>5.1.5.RELEASE</springframework.version>
+        <springboot.version>2.1.4.RELEASE</springboot.version>
+        <mybatis-spring.version>1.3.2</mybatis-spring.version>
+        <tkmapper.version>4.0.3</tkmapper.version>
+        <pagehelper.version>5.1.8</pagehelper.version>
+        <org-mybatis.version>3.5.0</org-mybatis.version>
+        <fastjosn.version>1.2.29</fastjosn.version>
+        <redis-client.version>2.10.2</redis-client.version>
+        <pagehelper-spring-boot.version>1.2.11</pagehelper-spring-boot.version>
+        <log4j.version>2.11.2</log4j.version>
+        <mybatis-generator.version>1.3.6</mybatis-generator.version>
+        <lang-common.version>3.9</lang-common.version>
+        <mysql.version>5.1.6</mysql.version>
+        <logback.version>1.1.11</logback.version>
+        <swagger.version>2.9.2</swagger.version>
+        <swagger-bootstrap-ui.version>1.8.2</swagger-bootstrap-ui.version>
+        <guava.version>20.0</guava.version>
+        <druid.version>1.1.10</druid.version>
+        <jackson.version>2.9.8</jackson.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <apollo.client.version>1.1.0</apollo.client.version>
+        <com.lmax.disruptor.version>3.3.11</com.lmax.disruptor.version>
+        <mapper.plugin>tk.mybatis.mapper.generator.MapperPlugin</mapper.plugin>
+        <mapper.Mapper>tk.mybatis.mapper.common.Mapper</mapper.Mapper>
+        <spring-boot-starter-actuator.version>2.1.7.RELEASE</spring-boot-starter-actuator.version>
+        <micrometer-registry-prometheus.version>1.1.5</micrometer-registry-prometheus.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- 统一管理Spring依赖 -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${springframework.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--通过Spring Boot管理其他第三方版本-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-parent</artifactId>
+                <version>Greenwich.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--其他-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>1.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${com.lmax.disruptor.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ctrip.framework.apollo</groupId>
+                <artifactId>apollo-client</artifactId>
+                <version>${apollo.client.version}</version>
+            </dependency>
+            <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>${pagehelper.version}</version>
+        </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-spring-boot.version}</version>
+            </dependency>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper</artifactId>
+            <version>${tkmapper.version}</version>
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${org-mybatis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjosn.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${redis-client.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>${mybatis-generator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${lang-common.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>${swagger-bootstrap-ui.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper</artifactId>
+            <version>${tkmapper.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>${spring-boot-starter-actuator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>${micrometer-registry-prometheus.version}</version>
+        </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <!--profiles begin-->
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            <repositories>
+                <repository>
+                    <id>maven_nexus_down</id>
+                    <url>http://nexus.feikongbao.cn:8081/repository/maven-public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+            </repositories>
+
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>maven_nexus_plugin</id>
+                    <url>http://nexus.feikongbao.cn:8081/repository/maven-public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+
+            <properties>
+            </properties>
+
+            <distributionManagement>
+                <repository>
+                    <id>maven-releases</id>
+                    <name>Releases</name>
+                    <url>http://nexus.feikongbao.cn:8081/repository/maven-releases/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>maven-snapshots</id>
+                    <name>Snapshot</name>
+                    <url>http://nexus.feikongbao.cn:8081/repository/maven-snapshots/</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+
+        <profile>
+            <id>fat</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            <repositories>
+                <repository>
+                    <id>maven_nuxus_down</id>
+                    <url>http://nexus.feikongbao.cn:8081/repository/maven_qa/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+            </repositories>
+
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>maven_nexus_plugin</id>
+                    <url>http://nexus.feikongbao.cn:8081/repository/maven_qa/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+
+            <properties>
+            </properties>
+
+            <distributionManagement>
+                <repository>
+                    <id>maven-release-qa</id>
+                    <name>Releases</name>
+                    <url>http://nexus.feikongbao.cn:8081/repository/maven_release_qa/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>maven-snapshot-qa</id>
+                    <name>Snapshot</name>
+                    <url>http://nexus.feikongbao.cn:8081/repository/maven_snapshot_qa/</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+
+        <profile>
+            <id>pro</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            <properties>
+            </properties>
+
+            <repositories>
+                <repository>
+                    <id>maven_nuxus_down</id>
+                    <url>http://nexus.feikongbao.cn:8081/repository/maven_pro/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+            </repositories>
+
+
+
+            <distributionManagement>
+                <repository>
+                    <id>maven-release-pro</id>
+                    <name>Releases</name>
+                    <url>http://nexus.feikongbao.cn:8081/repository/maven_release_pro/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>maven-snapshot-pro</id>
+                    <name>Snapshot</name>
+                    <url>http://nexus.feikongbao.cn:8081/repository/maven_snapshot_pro/</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
+    <!--profiles end-->
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <configuration>
+                    <!--可指定配置文件地址，默认地址resources/generatorConfig.xml -->
+<!--                    <configurationFile>${basedir}/src/main/java/com/shengpay/mf/dao/db/generator/generatorConfig.xml-->
+<!--                    </configurationFile>-->
+                </configuration>
+                <!--依赖DB的驱动包 -->
+                <dependencies>
+
+                    <dependency>
+                        <groupId>tk.mybatis</groupId>
+                        <artifactId>mapper</artifactId>
+                        <version>${tkmapper.version}</version>
+                    </dependency>
+                  <!--  <dependency>
+                        <groupId>org.mybatis.generator</groupId>
+                        <artifactId>mybatis-generator-core</artifactId>
+                        <version>${mybatis-generator.version}</version>
+                    </dependency>-->
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
