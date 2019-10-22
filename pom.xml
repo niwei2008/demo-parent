@@ -40,6 +40,8 @@
         <mapper.Mapper>tk.mybatis.mapper.common.Mapper</mapper.Mapper>
         <spring-boot-starter-actuator.version>2.1.7.RELEASE</spring-boot-starter-actuator.version>
         <micrometer-registry-prometheus.version>1.1.5</micrometer-registry-prometheus.version>
+        <cas-client-core.version>3.5.1</cas-client-core.version>
+        <junit.version>4.12</junit.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -86,6 +88,11 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
             <version>${mybatis-spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jasig.cas.client</groupId>
+            <artifactId>cas-client-core</artifactId>
+            <version>${cas-client-core.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.pagehelper</groupId>
@@ -185,6 +192,11 @@
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
             <version>${micrometer-registry-prometheus.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
         </dependency>
 
         </dependencies>
