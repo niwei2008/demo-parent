@@ -108,9 +108,7 @@
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper</artifactId>
             <version>${tkmapper.version}</version>
-
         </dependency>
-
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
@@ -177,11 +175,6 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>tk.mybatis</groupId>
-            <artifactId>mapper</artifactId>
-            <version>${tkmapper.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -373,24 +366,12 @@
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <configuration>
-                    <!--可指定配置文件地址，默认地址resources/generatorConfig.xml -->
-<!--                    <configurationFile>${basedir}/src/main/java/com/shengpay/mf/dao/db/generator/generatorConfig.xml-->
-<!--                    </configurationFile>-->
-                </configuration>
-                <!--依赖DB的驱动包 -->
                 <dependencies>
-
                     <dependency>
                         <groupId>tk.mybatis</groupId>
                         <artifactId>mapper</artifactId>
                         <version>${tkmapper.version}</version>
                     </dependency>
-                  <!--  <dependency>
-                        <groupId>org.mybatis.generator</groupId>
-                        <artifactId>mybatis-generator-core</artifactId>
-                        <version>${mybatis-generator.version}</version>
-                    </dependency>-->
                     <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
