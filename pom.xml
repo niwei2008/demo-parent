@@ -16,7 +16,9 @@
     <properties>
         <springframework.version>5.1.5.RELEASE</springframework.version>
         <springboot.version>2.1.4.RELEASE</springboot.version>
+        <spring.rabbit.version>2.2.0.RELEASE</spring.rabbit.version>
         <mybatis-spring.version>1.3.2</mybatis-spring.version>
+        <mybatis.spring-boot-starter.version>1.3.0</mybatis.spring-boot-starter.version>
         <tkmapper.version>4.0.3</tkmapper.version>
         <pagehelper.version>5.1.8</pagehelper.version>
         <org-mybatis.version>3.5.0</org-mybatis.version>
@@ -42,6 +44,7 @@
         <micrometer-registry-prometheus.version>1.1.5</micrometer-registry-prometheus.version>
         <cas-client-core.version>3.5.1</cas-client-core.version>
         <junit.version>4.12</junit.version>
+        <java.mail.version>1.6.2</java.mail.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -53,7 +56,27 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
             <!--通过Spring Boot管理其他第三方版本-->
+            <dependency>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>javax.mail.</artifactId>
+                <version>${java.mail.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-messaging</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -68,11 +91,21 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.amqp</groupId>
+                <artifactId>spring-rabbit</artifactId>
+                <version>${spring.rabbit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.amqp</groupId>
+                <artifactId>spring-amqp</artifactId>
+                <version>${spring.rabbit.version}</version>
+            </dependency>
             <!--其他-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>1.3.0</version>
+                <version>${mybatis.spring-boot-starter.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.lmax</groupId>
