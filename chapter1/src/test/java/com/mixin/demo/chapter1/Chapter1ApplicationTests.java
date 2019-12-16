@@ -1,5 +1,5 @@
 package com.mixin.demo.chapter1;
-
+/*
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,3 +14,4 @@ public class Chapter1ApplicationTests {
 	}
 
 }
+*/
