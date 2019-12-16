@@ -265,22 +265,7 @@
                 </executions>
             </plugin>
 
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <dependencies>
-                    <dependency>
-                        <groupId>tk.mybatis</groupId>
-                        <artifactId>mapper</artifactId>
-                        <version>${tkmapper.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>${mysql.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
+
 
         </plugins>
     </build>
