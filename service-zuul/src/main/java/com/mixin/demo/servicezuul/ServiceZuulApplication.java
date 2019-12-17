@@ -11,6 +11,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableEurekaClient
 @EnableDiscoveryClient
 // http://localhost:8769/api-b/hi?name=forezp
+// http://localhost:8769/api-b/hi?name=forezp&token=22
 public class ServiceZuulApplication {
 
 	public static void main(String[] args) {
