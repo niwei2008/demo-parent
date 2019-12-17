@@ -1,4 +1,4 @@
-package com.mixin.demo.chapter1;
+package com.mixin.demo.servicemiya;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,10 +18,10 @@ import org.springframework.web.client.RestTemplate;
 @EnableEurekaClient
 @SpringBootApplication
 @RestController
-public class Chapter1Application {
+public class ServiceMiyaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Chapter1Application.class, args);
+		SpringApplication.run(ServiceMiyaApplication.class, args);
 	}
 
 	@Value("${server.port}")
@@ -34,7 +34,20 @@ public class Chapter1Application {
 
 
 	//zipkin start
-	private static final Logger LOG = Logger.getLogger(Chapter1Application.class.getName());
+	private static final Logger LOG = Logger.getLogger(ServiceMiyaApplication.class.getName());
+
+
+	@RequestMapping("/hi2")
+	public String home(){
+		LOG.log(Level.INFO, "hi is being called");
+		return "hi i'm miya!";
+	}
+
+	@RequestMapping("/miya")
+	public String info(){
+		LOG.log(Level.INFO, "info is being called");
+		return restTemplate.getForObject("http://localhost:8988/info",String.class);
+	}
 
 	@Autowired
 	private RestTemplate restTemplate;
@@ -44,23 +57,10 @@ public class Chapter1Application {
 		return new RestTemplate();
 	}
 
-	@RequestMapping("/hi2")
-	public String callHome(){
-		LOG.log(Level.INFO, "calling trace service-hi  ");
-		return restTemplate.getForObject("http://localhost:8989/miya", String.class);
-	}
-	@RequestMapping("/info")
-	public String info(){
-		LOG.log(Level.INFO, "calling trace service-hi ");
-
-		return "i'm service-hi";
-
-	}
 
 	@Bean
 	public Sampler defaultSampler() {
 		return Sampler.ALWAYS_SAMPLE;
 	}
-
 
 }

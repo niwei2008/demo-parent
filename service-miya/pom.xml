@@ -11,8 +11,8 @@
 	<groupId>com.mixin.demo</groupId>
 	<artifactId>chapter1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>chapter1</name>
-	<description>Demo project for Spring Boot</description>
+	<name>service-miya</name>
+	<description>service -miya project for Spring Boot</description>
 
 	<dependencies>
 		<dependency>
