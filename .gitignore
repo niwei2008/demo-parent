@@ -90,3 +90,6 @@ fabric.properties
 .idea/vcs.xml
 target/**/*
 */target/**/*
+service-feign/src/main/.DS_Store
+service-feign/src/test/.DS_Store
+service-ribbon/src/main/java/com/.DS_Store
