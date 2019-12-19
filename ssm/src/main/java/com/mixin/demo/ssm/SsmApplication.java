@@ -46,14 +46,14 @@ public class SsmApplication {
 
 	@RequestMapping("/hi2")
 	public String callHome(){
-		LOG.log(Level.INFO, "calling trace service-hi  ");
+		LOG.log(Level.INFO, "calling trace service-ssm  ");
 		return restTemplate.getForObject("http://localhost:8989/miya", String.class);
 	}
 	@RequestMapping("/info")
 	public String info(){
-		LOG.log(Level.INFO, "calling trace service-hi ");
+		LOG.log(Level.INFO, "calling trace service-ssm ");
 
-		return "i'm service-hi";
+		return "i'm service-ssm";
 
 	}
 
