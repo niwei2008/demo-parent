@@ -71,6 +71,16 @@
                 <scope>import</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${org-mybatis.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

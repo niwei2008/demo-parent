@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import brave.sampler.Sampler;
+import com.mixin.demo.ssm.queue.MyDefaultSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -27,8 +28,12 @@ public class SsmApplication {
 	@Value("${server.port}")
 	String port;
 
+	@Autowired
+	MyDefaultSender sender;
+
 	@RequestMapping("/hi")
 	public String home(@RequestParam(value = "name", defaultValue = "forezp") String name) {
+		sender.send();
 		return "hi " + name + " ,i am from port:" + port;
 	}
 
