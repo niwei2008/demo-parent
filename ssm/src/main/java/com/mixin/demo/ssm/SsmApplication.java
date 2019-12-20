@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import brave.sampler.Sampler;
+import com.mixin.demo.ssm.cache.RedisSample;
 import com.mixin.demo.ssm.queue.MyDefaultSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,9 +32,13 @@ public class SsmApplication {
 	@Autowired
 	MyDefaultSender sender;
 
+	@Autowired
+	RedisSample redisSample;
+
 	@RequestMapping("/hi")
 	public String home(@RequestParam(value = "name", defaultValue = "forezp") String name) {
 		sender.send();
+		redisSample.set();
 		return "hi " + name + " ,i am from port:" + port;
 	}
 
