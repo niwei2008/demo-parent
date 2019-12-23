@@ -37,7 +37,7 @@
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="com.mixin.demo.ssm.dao" targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="com.mixin.demo.ssm.dao.generated" targetProject="src/main/resources">
         </sqlMapGenerator>
 
         <javaClientGenerator type="MIXEDMAPPER" targetPackage="com.mixin.demo.ssm.dao.generated"  targetProject="src/main/java" />

@@ -53,15 +53,12 @@ public class SsmApplication   implements CommandLineRunner {
 	@Autowired
 	UserDomainMapper userDomainMapper;
 
-	@GetMapping("insert")
-    public ResponseEntity insert(int uid){
+	@GetMapping("select")
+    public ResponseEntity select(int uid){
 		//return ResponseEntity.ok(userDao.selectById(uid));
 
-        UserDomain oneUser = userDao.find(1000);
-        oneUser.setUserName("userName"+uid);
-        userDomainMapper.insert(oneUser);
-
-        return ResponseEntity.ok(oneUser.getUserName());
+		UserDomain oneUser = userDomainMapper.selectByPrimaryKey(uid);
+		return ResponseEntity.ok(oneUser.getUserName());
 }
 
 	@RequestMapping("/hi")
