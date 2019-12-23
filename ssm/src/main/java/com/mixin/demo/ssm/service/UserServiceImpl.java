@@ -36,4 +36,9 @@ public class UserServiceImpl implements UserService {
     public List<UserDomain> selectUsers() {
         return userDao.selectUsers();
     }
+
+    @Override
+    public UserDomain find(int uid) {
+        return userDao.find(uid);
+    }
 }

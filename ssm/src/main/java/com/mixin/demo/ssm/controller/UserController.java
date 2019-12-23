@@ -65,4 +65,9 @@ public class UserController {
     public ResponseEntity getUsers(){
         return ResponseEntity.ok(userService.selectUsers());
     }
+
+    @GetMapping("find")
+    public ResponseEntity find(@RequestParam(value = "uid", required = false, defaultValue = "1000") int uid){
+        return ResponseEntity.ok(userService.find(uid));
+    }
 }

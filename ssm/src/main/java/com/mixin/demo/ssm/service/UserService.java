@@ -17,4 +17,6 @@ public interface UserService {
 
     List<UserDomain> selectUsers();
 
+    UserDomain find(int uid);
+
 }
