@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="mysql" defaultModelType="flat" targetRuntime="MyBatis3">
+
+        <property name="autoDelimitKeywords" value="false"/>
+
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="com.itfsw.mybatis.generator.plugins.LimitPlugin"/>
+        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin"/>
+        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleTargetPlugin">
+            <!-- 修改Example类生成到目标包下 -->
+            <property name="targetPackage" value="com.mixin.demo.ssm.mybatis"/>
+        </plugin>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://ops.feikongbao.cn:3306/cas"
+                        userId="yodoo"
+                        password="yodoo123">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="true" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.mixin.demo.ssm.mybatis.entity" targetProject="src/main/java">
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.mixin.demo.ssm.mybatis.mapper" targetProject="src/main/resources">
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="MIXEDMAPPER" targetPackage="com.mixin.demo.ssm.mybatis.mapper"  targetProject="src/main/java" />
+
+        <table tableName="my_table1" >
+            <property name="value" value="true"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+            <!-- 生成的实体类等去掉表名的前缀。注意，与正则要写驼峰转化后的。或者在table标签添加domainObjectName属性直接指定 -->
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+
+        <table tableName="table1" domainObjectName="table1" >
+            <property name="value" value="true" />
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+            <!-- 生成的实体类等去掉表名的前缀。注意，与正则要写驼峰转化后的。或者在table标签添加domainObjectName属性直接指定 -->
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+
+
+    </context>
+</generatorConfiguration>
