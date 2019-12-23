@@ -70,4 +70,9 @@ public class UserController {
     public ResponseEntity find(@RequestParam(value = "uid", required = false, defaultValue = "1000") int uid){
         return ResponseEntity.ok(userService.find(uid));
     }
+
+    @GetMapping("selectById")
+    public ResponseEntity selectById(@RequestParam(value = "uid", required = false, defaultValue = "1000") int uid){
+        return ResponseEntity.ok(userService.selectById(uid));
+    }
 }

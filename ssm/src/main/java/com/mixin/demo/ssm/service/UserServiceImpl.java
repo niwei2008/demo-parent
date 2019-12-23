@@ -38,6 +38,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDomain selectById(int uid){
+        return userDao.selectById(uid);
+    };
+
+    @Override
     public UserDomain find(int uid) {
         return userDao.find(uid);
     }

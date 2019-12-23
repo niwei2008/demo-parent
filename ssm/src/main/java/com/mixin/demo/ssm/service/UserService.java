@@ -19,4 +19,7 @@ public interface UserService {
 
     UserDomain find(int uid);
 
+    UserDomain selectById(int uid);
+
+
 }

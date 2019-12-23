@@ -18,6 +18,8 @@ public interface UserDao {
 
     List<UserDomain> selectUsers();
 
+    UserDomain selectById(int uid);
+
     @Select("select * from t_user where user_id = #{uid}")
     public UserDomain find(int uid);
 
