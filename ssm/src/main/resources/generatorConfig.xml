@@ -20,7 +20,7 @@
         <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin"/>
         <plugin type="com.itfsw.mybatis.generator.plugins.ExampleTargetPlugin">
             <!-- 修改Example类生成到目标包下 -->
-            <property name="targetPackage" value="com.mixin.demo.ssm.entity"/>
+            <property name="targetPackage" value="com.mixin.demo.ssm.mybatis"/>
         </plugin>
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
