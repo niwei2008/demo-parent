@@ -1,6 +1,7 @@
 package com.mixin.demo.ssm.controller;
 
 
+import com.mixin.demo.ssm.dao.UserDao;
 import com.mixin.demo.ssm.entity.UserDomain;
 import com.mixin.demo.ssm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,4 +76,5 @@ public class UserController {
     public ResponseEntity selectById(@RequestParam(value = "uid", required = false, defaultValue = "1000") int uid){
         return ResponseEntity.ok(userService.selectById(uid));
     }
+
 }

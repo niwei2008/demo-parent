@@ -6,6 +6,8 @@ import java.util.logging.Logger;
 import brave.sampler.Sampler;
 import com.mixin.demo.ssm.cache.RedisSample;
 import com.mixin.demo.ssm.dao.UserDao;
+import com.mixin.demo.ssm.entity.UserDomain;
+import com.mixin.demo.ssm.mybatis.UserDomainMapper;
 import com.mixin.demo.ssm.queue.MyDefaultSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +17,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,8 +45,21 @@ public class SsmApplication {
 	RedisSample redisSample;
 
 	@Autowired
-	private UserDao userDao;//这里会爆红，请忽略
+	private UserDao userDao;
 
+	@Autowired
+	UserDomainMapper userDomainMapper;
+
+	@GetMapping("insert")
+    public ResponseEntity insert(int uid){
+		//return ResponseEntity.ok(userDao.selectById(uid));
+
+        UserDomain oneUser = userDao.find(1000);
+        oneUser.setUserName("userName"+uid);
+        userDomainMapper.insert(oneUser);
+
+        return ResponseEntity.ok(oneUser.getUserName());
+}
 
 	@RequestMapping("/hi")
 	public String home(@RequestParam(value = "name", defaultValue = "forezp") String name) {
@@ -50,7 +67,9 @@ public class SsmApplication {
 		redisSample.set();
 
 		String result = "hi " + name + " ,i am from port:" + port;
-		result = ("uu1:"+		userDao.find(1001).getUserName());
+		UserDomain oneUser = userDao.find(1001);
+		result = ("uu1:"+		oneUser.getUserName());
+
 		return result;
 	}
 
