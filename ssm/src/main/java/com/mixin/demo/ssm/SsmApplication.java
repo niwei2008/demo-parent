@@ -12,27 +12,30 @@ import com.mixin.demo.ssm.queue.MyDefaultSender;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import javax.sql.DataSource;
+
 @EnableEurekaClient
 @SpringBootApplication
 @RestController
 @MapperScan({"com.mixin.demo.ssm.dao.generated", "com.mixin.demo.ssm.dao"})
-public class SsmApplication {
+@EnableTransactionManagement
+public class SsmApplication   implements CommandLineRunner {
 
     public static void main(String[] args) {
-
-		SpringApplication.run(SsmApplication.class, args);
-
+    	SpringApplication.run(SsmApplication.class, args);
 	}
 
 	@Value("${server.port}")
@@ -103,5 +106,12 @@ public class SsmApplication {
 		return Sampler.ALWAYS_SAMPLE;
 	}
 
+	@Autowired
+	DataSource dataSource;
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("DATASOURCE = " + dataSource);
+	}
 
 }
