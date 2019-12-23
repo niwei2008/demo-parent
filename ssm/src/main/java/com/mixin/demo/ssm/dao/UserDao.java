@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-@Mapper
+//@Mapper
 public interface UserDao {
 
     int insert(UserDomain record);

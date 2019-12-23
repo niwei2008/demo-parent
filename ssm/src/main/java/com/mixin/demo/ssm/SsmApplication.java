@@ -6,17 +6,16 @@ import java.util.logging.Logger;
 import brave.sampler.Sampler;
 import com.mixin.demo.ssm.cache.RedisSample;
 import com.mixin.demo.ssm.dao.UserDao;
+import com.mixin.demo.ssm.dao.generated.UserDomainMapper;
 import com.mixin.demo.ssm.entity.UserDomain;
-import com.mixin.demo.ssm.mybatis.UserDomainMapper;
 import com.mixin.demo.ssm.queue.MyDefaultSender;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +26,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableEurekaClient
 @SpringBootApplication
 @RestController
+@MapperScan({"com.mixin.demo.ssm.dao.generated", "com.mixin.demo.ssm.dao"})
 public class SsmApplication {
 
     public static void main(String[] args) {
