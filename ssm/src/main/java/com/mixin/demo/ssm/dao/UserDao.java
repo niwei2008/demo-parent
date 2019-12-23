@@ -1,6 +1,6 @@
-package com.mixin.demo.ssm.mybatis.dao;
+package com.mixin.demo.ssm.dao;
 
-import com.mixin.demo.ssm.mybatis.entity.UserDomain;
+import com.mixin.demo.ssm.entity.UserDomain;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

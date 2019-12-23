@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mixin.demo.ssm.mybatis.dao.UserDao" >
+<mapper namespace="com.mixin.demo.ssm.dao.UserDao" >
     <sql id="BASE_TABLE">
         t_user
     </sql>
@@ -9,7 +9,7 @@
         user_id,user_name,password,phone
     </sql>
 
-    <insert id="insert" parameterType="com.mixin.demo.ssm.mybatis.entity.UserDomain">
+    <insert id="insert" parameterType="com.mixin.demo.ssm.entity.UserDomain">
         INSERT INTO
         <include refid="BASE_TABLE"/>
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -33,7 +33,7 @@
         user_id = #{user_id, jdbcType=INTEGER}
     </delete>
     <!-- 更新用户信息，为空的字段不进行置空 -->
-    <update id="updateUser" parameterType="com.mixin.demo.ssm.mybatis.entity.UserDomain">
+    <update id="updateUser" parameterType="com.mixin.demo.ssm.entity.UserDomain">
         UPDATE
         <include refid="BASE_TABLE"/>
         <set>
@@ -52,14 +52,14 @@
         </where>
     </update>
 
-    <select id="selectUsers" resultType="com.mixin.demo.ssm.mybatis.entity.UserDomain">
+    <select id="selectUsers" resultType="com.mixin.demo.ssm.entity.UserDomain">
         SELECT
         <include refid="BASE_COLUMN"/>
         FROM
         <include refid="BASE_TABLE"/>
     </select>
 
-    <select id="selectById" resultType="com.mixin.demo.ssm.mybatis.entity.UserDomain">
+    <select id="selectById" resultType="com.mixin.demo.ssm.entity.UserDomain">
         SELECT
         <include refid="BASE_COLUMN"/>
         FROM

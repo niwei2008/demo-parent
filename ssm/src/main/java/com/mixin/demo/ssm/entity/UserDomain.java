@@ -1,4 +1,4 @@
-package com.mixin.demo.ssm.mybatis.entity;
+package com.mixin.demo.ssm.entity;
 
 public class UserDomain {
     /**

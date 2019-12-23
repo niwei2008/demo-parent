@@ -20,7 +20,7 @@
         <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin"/>
         <plugin type="com.itfsw.mybatis.generator.plugins.ExampleTargetPlugin">
             <!-- 修改Example类生成到目标包下 -->
-            <property name="targetPackage" value="com.mixin.demo.ssm.mybatis.entity"/>
+            <property name="targetPackage" value="com.mixin.demo.ssm.entity"/>
         </plugin>
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
@@ -33,14 +33,14 @@
             <property name="forceBigDecimals" value="true" />
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="com.mixin.demo.ssm.mybatis.entity" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.mixin.demo.ssm.entity" targetProject="src/main/java">
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="com.mixin.demo.ssm.mybatis.mapper" targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="com.mixin.demo.ssm.mybatis" targetProject="src/main/resources">
         </sqlMapGenerator>
 
-        <javaClientGenerator type="MIXEDMAPPER" targetPackage="com.mixin.demo.ssm.mybatis.mapper"  targetProject="src/main/java" />
+        <javaClientGenerator type="MIXEDMAPPER" targetPackage="com.mixin.demo.ssm.mybatis"  targetProject="src/main/java" />
 
 
 

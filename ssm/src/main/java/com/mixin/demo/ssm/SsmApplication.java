@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import brave.sampler.Sampler;
 import com.mixin.demo.ssm.cache.RedisSample;
+import com.mixin.demo.ssm.dao.UserDao;
 import com.mixin.demo.ssm.queue.MyDefaultSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,17 +40,17 @@ public class SsmApplication {
 	@Autowired
 	RedisSample redisSample;
 
+	@Autowired
+	private UserDao userDao;//这里会爆红，请忽略
+
+
 	@RequestMapping("/hi")
 	public String home(@RequestParam(value = "name", defaultValue = "forezp") String name) {
 		sender.send();
 		redisSample.set();
 
-//		ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mybatis.xml");
-//		UsersMapper dao = ac.getBean(UsersMapper.class);
-//		table1 u1 = dao.find(1);
-
 		String result = "hi " + name + " ,i am from port:" + port;
-//		result = ("uu1:"+		u1);
+		result = ("uu1:"+		userDao.find(1001).getUserName());
 		return result;
 	}
 

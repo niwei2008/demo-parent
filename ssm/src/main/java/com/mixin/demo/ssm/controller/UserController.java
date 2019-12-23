@@ -1,7 +1,7 @@
 package com.mixin.demo.ssm.controller;
 
 
-import com.mixin.demo.ssm.mybatis.entity.UserDomain;
+import com.mixin.demo.ssm.entity.UserDomain;
 import com.mixin.demo.ssm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

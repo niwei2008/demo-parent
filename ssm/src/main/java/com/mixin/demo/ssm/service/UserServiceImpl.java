@@ -1,7 +1,7 @@
 package com.mixin.demo.ssm.service;
 
-import com.mixin.demo.ssm.mybatis.dao.UserDao;
-import com.mixin.demo.ssm.mybatis.entity.UserDomain;
+import com.mixin.demo.ssm.dao.UserDao;
+import com.mixin.demo.ssm.entity.UserDomain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

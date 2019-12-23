@@ -2,7 +2,7 @@
 package com.mixin.demo.ssm;
 
 import com.mixin.demo.ssm.mybatis.UsersMapper;
-import com.mixin.demo.ssm.mybatis.entity.table1;
+import com.mixin.demo.ssm.entity.table1;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

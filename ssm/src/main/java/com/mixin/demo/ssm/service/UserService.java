@@ -1,6 +1,6 @@
 package com.mixin.demo.ssm.service;
 
-import com.mixin.demo.ssm.mybatis.entity.UserDomain;
+import com.mixin.demo.ssm.entity.UserDomain;
 
 import java.util.List;
 
