@@ -42,16 +42,11 @@
 
         <javaClientGenerator type="MIXEDMAPPER" targetPackage="com.mixin.demo.ssm.mybatis.mapper"  targetProject="src/main/java" />
 
-        <table tableName="my_table1" >
-            <property name="value" value="true"/>
-            <generatedKey column="id" sqlStatement="MySql" identity="true" />
-            <!-- 生成的实体类等去掉表名的前缀。注意，与正则要写驼峰转化后的。或者在table标签添加domainObjectName属性直接指定 -->
-            <domainObjectRenamingRule searchString="^T" replaceString=""/>
-        </table>
 
-        <table tableName="table1" domainObjectName="table1" >
+
+        <table tableName="t_user" domainObjectName="UserDomain" >
             <property name="value" value="true" />
-            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+            <generatedKey column="user_id" sqlStatement="MySql" identity="true" />
             <!-- 生成的实体类等去掉表名的前缀。注意，与正则要写驼峰转化后的。或者在table标签添加domainObjectName属性直接指定 -->
             <domainObjectRenamingRule searchString="^T" replaceString=""/>
         </table>

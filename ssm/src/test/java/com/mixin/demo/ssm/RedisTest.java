@@ -10,9 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-@Component
 public class RedisTest {
-
     @Autowired
     private RedisTemplate redisTemplate;
 
@@ -26,5 +24,6 @@ public class RedisTest {
         System.out.println(redisTemplate.opsForValue().get("test:set"));
         System.out.println(redisTemplate.opsForHash().get("hash1", "name1"));
     }
+
 }
 

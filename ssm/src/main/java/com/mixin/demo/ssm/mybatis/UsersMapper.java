@@ -1,18 +1,17 @@
+/*
 package com.mixin.demo.ssm.mybatis;
 
-import com.mixin.demo.ssm.mybatis.entity.table1;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @Mapper
 public interface UsersMapper {
-    @Select("select * from table1")
+   @Select("select * from table1")
     @Results({
       @Result(property = "id", column = "id", id = true),
       @Result(property = "value", column = "value")
@@ -23,3 +22,4 @@ public interface UsersMapper {
     public table1 find(int uid);
 
 }
+        */
