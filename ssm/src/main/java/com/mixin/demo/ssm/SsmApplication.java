@@ -59,7 +59,16 @@ public class SsmApplication   implements CommandLineRunner {
 
 		UserDomain oneUser = userDomainMapper.selectByPrimaryKey(uid);
 		return ResponseEntity.ok(oneUser.getUserName());
-}
+    }
+
+	@GetMapping("selectById")
+	public ResponseEntity selectById(int uid){
+		//return ResponseEntity.ok(userDao.selectById(uid));
+
+		UserDomain oneUser = userDao.selectById(uid);
+		return ResponseEntity.ok(oneUser.getUserName());
+	}
+
 
 	@RequestMapping("/hi")
 	public String home(@RequestParam(value = "name", defaultValue = "forezp") String name) {
