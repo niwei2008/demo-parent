@@ -23,6 +23,7 @@
         <module>service-miya</module>
         <module>service-ribbon</module>
         <module>service-zuul</module>
+        <module>ssm</module>
     </modules>
 
     <properties>
