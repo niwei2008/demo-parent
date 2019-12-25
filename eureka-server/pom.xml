@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mixin</groupId>
-    <artifactId>au-eureka-server</artifactId>
+    <artifactId>eureka-server</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -31,7 +31,6 @@
 
 
     <build>
-        <finalName>au-eureka-server</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
