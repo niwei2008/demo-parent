@@ -14,6 +14,8 @@
 	<name>ssm</name>
 	<description>ssm project for Spring Boot</description>
 
+	<!--pom.xml配置打包格式：SpringBoot使用JSP时需打包为war类型 -->
+	<packaging>war</packaging>
 
 	<dependencies>
 		<dependency>
