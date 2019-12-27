@@ -5,6 +5,6 @@
     <title>index</title>
 </head>
 <body>
-it's index
+it's index.ftl
 </body>
 </html>
