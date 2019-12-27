@@ -10,7 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class TaskController {
 
     @RequestMapping("/mvc1")
-    public ModelAndView mvc1() {
-        return new ModelAndView("index");
+    public ModelAndView mvc1(ModelAndView modelAndView) {
+        modelAndView.addObject("name","TaskController");
+        modelAndView.setViewName("index");
+        return modelAndView;
     }
 }

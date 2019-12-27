@@ -5,6 +5,7 @@
     <title>index</title>
 </head>
 <body>
-it's index
+it's index ftl
+Welcome ${name} !
 </body>
 </html>
