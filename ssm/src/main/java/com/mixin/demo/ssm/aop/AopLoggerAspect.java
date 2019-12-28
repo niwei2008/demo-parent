@@ -42,8 +42,8 @@ public class AopLoggerAspect {
         this.mapper = mapper;
     }
 
-    //@Pointcut("execution(public * com.mixin.demo.ssm.controller.*Controller.*(..)) || execution(public * com.mixin.demo.ssm.mvcfreemarker.*Controller.*(..)) ")
-    @Pointcut("@annotation(org.springframework.web.bind.annotation.RequestMapping) || @annotation(org.springframework.web.bind.annotation.GetMapping)")
+    //@Pointcut("@annotation(org.springframework.web.bind.annotation.RequestMapping) || @annotation(org.springframework.web.bind.annotation.GetMapping)")
+    @Pointcut("execution(public * com.mixin.demo.ssm.controller..*.*(..)) ")
     public void pointCut() {
 
     }
