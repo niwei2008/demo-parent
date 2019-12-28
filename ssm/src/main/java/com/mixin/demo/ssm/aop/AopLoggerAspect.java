@@ -25,9 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
+//import com.alibaba.fastjson.JSON;
 
 /**
  * Created by DavyNi on 2019/12/28.
@@ -69,7 +67,7 @@ public class AopLoggerAspect {
                     logger.info(
                             "request parameter0 : " +joinPoint.getTarget().getClass().getName()
                                     + " . " + joinPoint.getSignature().getName()
-                                    + " , " +  mapper.writeValueAsString(object)
+                                    + " : " +  mapper.writeValueAsString(object)
                     );
                 }
             } catch (Exception e) {
@@ -128,11 +126,12 @@ public class AopLoggerAspect {
             } else if (arg instanceof HttpServletResponse) {
                 argList.add("response");
             } else {
-                argList.add(JSON.toJSON(arg));
+                //argList.add(JSON.toJSON(arg));
+                argList.add(arg);
             }
         }
         try {
-            logger.info("request parameter2 : {} -> 方法({}) -> 参数:{} - {}", serviceName, methodName1, JSON.toJSON(parameterNames), JSON.toJSON(argList));
+            logger.info("request parameter2 : {} -> 方法({}) -> 参数:{} - {}", serviceName, methodName1, parameterNames, argList);
         } catch (Exception e) {
             logger.error("参数获取失败: {}", e.getMessage());
         }
