@@ -4,7 +4,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +20,14 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 
 /**
  * Created by DavyNi on 2019/12/28.
@@ -43,9 +51,11 @@ public class AopLoggerAspect {
     }
 
     @Before("pointCut()")
-    public void doBefore(JoinPoint joinPoint) {
+    public void doBefore(JoinPoint joinPoint) throws Exception {
         String methodName = joinPoint.getSignature().getName();
         logger.info("Method Name : [" + methodName + "] ---> AOP before ");
+
+        //获取请求参数方法0
         for (Object object : joinPoint.getArgs()) {
             if (
                     object instanceof MultipartFile
@@ -57,17 +67,19 @@ public class AopLoggerAspect {
             try {
                 if (true) {
                     logger.info(
-                            "request parameter : " +joinPoint.getTarget().getClass().getName()
-                                    + "," + joinPoint.getSignature().getName()
-                                    //+ mapper.w
-                                    +  mapper.writeValueAsString(object)
+                            "request parameter0 : " +joinPoint.getTarget().getClass().getName()
+                                    + " . " + joinPoint.getSignature().getName()
+                                    + " , " +  mapper.writeValueAsString(object)
                     );
-                    logger.warn("request: "+ getFieldsName(joinPoint));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+
+        //获取请求参数名方法1
+        logger.info("request parameter1 : "+ getFieldsName(joinPoint));
+
 
     }
 
@@ -98,6 +110,34 @@ public class AopLoggerAspect {
 
     @Around("pointCut()")
     public Object around(ProceedingJoinPoint joinPoint) {
+        //获取请求参数名方法2 begin
+        Signature signature = joinPoint.getSignature();
+        // 方法名
+        String methodName1 = signature.getName();
+        // 类名
+        String serviceName = signature.getDeclaringTypeName();
+
+        // 参数名数组
+        String[] parameterNames = ((MethodSignature) signature).getParameterNames();
+        // 构造参数组集合
+        List<Object> argList = new ArrayList<>();
+        for (Object arg : joinPoint.getArgs()) {
+            // request/response无法使用toJSON
+            if (arg instanceof HttpServletRequest) {
+                argList.add("request");
+            } else if (arg instanceof HttpServletResponse) {
+                argList.add("response");
+            } else {
+                argList.add(JSON.toJSON(arg));
+            }
+        }
+        try {
+            logger.info("request parameter2 : {} -> 方法({}) -> 参数:{} - {}", serviceName, methodName1, JSON.toJSON(parameterNames), JSON.toJSON(argList));
+        } catch (Exception e) {
+            logger.error("参数获取失败: {}", e.getMessage());
+        }
+        //获取请求参数名方法2 end
+
         String methodName = joinPoint.getSignature().getName();
         try {
             logger.info("Method Name : [" + methodName + "] ---> AOP around start");
@@ -115,7 +155,7 @@ public class AopLoggerAspect {
     }
 
 
-
+    //获取请求参数名方法1 begin
     private Map<String, Object> getFieldsName(JoinPoint joinPoint) throws Exception {
         String classType = joinPoint.getTarget().getClass().getName();
         String methodName = joinPoint.getSignature().getName();
@@ -162,6 +202,6 @@ public class AopLoggerAspect {
             put("java.lang.Char", char.class);
         }
     };
-
+    //获取请求参数名方法1 end
 
 }

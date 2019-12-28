@@ -73,7 +73,7 @@ public class UserController {
     }
 
     @GetMapping("selectById")
-    public ResponseEntity selectById(@RequestParam(value = "uid", required = false, defaultValue = "1000") int uid){
+    public ResponseEntity selectById(@RequestParam(value = "uid", required = false, defaultValue = "1000") int uid, @RequestParam(required = false, defaultValue = "999") int para2){
         return ResponseEntity.ok(userService.selectById(uid));
     }
 
