@@ -89,11 +89,12 @@ public class AopLoggerAspect {
 
     @AfterReturning(pointcut = "pointCut()",returning = "result")
     public void afterReturn(JoinPoint joinPoint, Object result) {
-        String methodName = joinPoint.getSignature().getName();
-        logger.info("Method Name : [" + methodName + "] ---> AOP after return ,and result is : " + result.toString());
         if (result != null) {
             try {
-                logger.info("response parameter : " + mapper.writeValueAsString(result));
+                String methodName = joinPoint.getSignature().getName();
+                logger.info("response parameter0 : Method Name : [" + methodName + "] ---> AOP after return ,and result is : " + result);
+
+                logger.info("response parameter1 : " + mapper.writeValueAsString(result));
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
             }
@@ -145,7 +146,7 @@ public class AopLoggerAspect {
             Object result = joinPoint.proceed();
             long execTimeMillis = System.currentTimeMillis() - startTimeMillis;
             logger.info("Method Name : [" + methodName + "] ---> AOP method exec time millis : " + execTimeMillis);
-            logger.info("Method Name : [" + methodName + "] ---> AOP around end , and result is : " + result.toString());
+            logger.info("response parameter0 : Method Name : [" + methodName + "] ---> AOP around end , and result is : " + mapper.writeValueAsString(result));
             return result;
         } catch (Throwable te) {
             logger.error(te.getMessage(),te);
