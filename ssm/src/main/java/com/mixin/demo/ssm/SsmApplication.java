@@ -10,6 +10,7 @@ import com.mixin.demo.ssm.dao.generated.UserDomainMapper;
 import com.mixin.demo.ssm.entity.UserDomain;
 import com.mixin.demo.ssm.queue.MyDefaultSender;
 import org.mybatis.spring.annotation.MapperScan;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -33,8 +34,9 @@ import javax.sql.DataSource;
 @MapperScan({"com.mixin.demo.ssm.dao.generated", "com.mixin.demo.ssm.dao"})
 @EnableTransactionManagement
 public class SsmApplication   implements CommandLineRunner {
+	private final static org.slf4j.Logger logger = LoggerFactory.getLogger(SsmApplication.class);
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
     	SpringApplication.run(SsmApplication.class, args);
 	}
 
@@ -117,7 +119,7 @@ public class SsmApplication   implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("DATASOURCE = " + dataSource);
+		logger.warn("DATASOURCE = " + dataSource);
 	}
 
 }
