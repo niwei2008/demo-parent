@@ -43,7 +43,7 @@
         <spring-boot-starter-actuator.version>2.1.7.RELEASE</spring-boot-starter-actuator.version>
         <micrometer-registry-prometheus.version>1.1.5</micrometer-registry-prometheus.version>
         <cas-client-core.version>3.5.1</cas-client-core.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <java.mail.version>1.6.2</java.mail.version>
     </properties>
     <dependencyManagement>
