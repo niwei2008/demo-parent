@@ -22,7 +22,7 @@
         <tkmapper.version>4.0.3</tkmapper.version>
         <pagehelper.version>5.1.8</pagehelper.version>
         <org-mybatis.version>3.5.0</org-mybatis.version>
-        <fastjosn.version>1.2.29</fastjosn.version>
+        <fastjosn.version>1.2.83</fastjosn.version>
         <redis-client.version>2.10.2</redis-client.version>
         <pagehelper-spring-boot.version>1.2.11</pagehelper-spring-boot.version>
         <log4j.version>2.11.2</log4j.version>
