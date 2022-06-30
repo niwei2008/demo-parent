@@ -16,7 +16,7 @@
     <properties>
         <springframework.version>5.1.5.RELEASE</springframework.version>
         <springboot.version>2.1.4.RELEASE</springboot.version>
-        <spring.rabbit.version>2.2.0.RELEASE</spring.rabbit.version>
+        <spring.rabbit.version>2.3.11</spring.rabbit.version>
         <mybatis-spring.version>1.3.2</mybatis-spring.version>
         <mybatis.spring-boot-starter.version>1.3.0</mybatis.spring-boot-starter.version>
         <tkmapper.version>4.0.3</tkmapper.version>
